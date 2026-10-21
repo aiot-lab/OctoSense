@@ -1,0 +1,45 @@
+api_version: octosense.benchmarks/v2
+kind: BenchmarkSpec
+dataset:
+  dataset_id: operanet
+  modalities:
+  - uwb
+  variant: uwb2
+  split_scheme: subject_holdout
+  dataset_root: ./data/operanet
+task:
+  task_id: classification/activity
+  task_binding: activity
+transform:
+  steps:
+  - operator_id: TemporalResize
+    params:
+      axis_name: time
+      target_length: 256
+  - operator_id: Magnitude
+    params: {}
+  - operator_id: SampleZScoreNormalize
+    params: {}
+  - operator_id: AutoAlign
+    params:
+      model_or_contract:
+        axes:
+        - time
+        - feature
+        dtype_kind: real
+        fixed_sizes: {}
+        layout: BTF
+model:
+  model_id: cnn1d
+  entry_overrides:
+    num_classes: 7
+    hidden_dim: 128
+    num_layers: 2
+    kernel_size: 5
+    dropout: 0.1
+runtime:
+  device: cpu
+  batch_size: 32
+  epochs: 20
+  seed: 0
+  num_workers: 0

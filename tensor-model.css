@@ -1,0 +1,21 @@
+/* A rigid six-face model: only the parent's rotation changes during a turn. */
+.tensor-demo .cube-trigger { aspect-ratio: 300 / 270; isolation: isolate; }
+.tensor-model-scene {
+  position: absolute; left: 50%; top: 50%; width: 300px; height: 270px;
+  transform: translate(-50%, -50%) scale(var(--model-scale, 1));
+  pointer-events: none;
+}
+.tensor-model-view, .tensor-model-body {
+  position: absolute; width: 0; height: 0; transform-style: preserve-3d;
+}
+.tensor-model-view { left: 50%; top: 50%; transform: rotateX(58deg) rotateZ(-40deg); }
+.tensor-model-body { transform: rotateZ(0deg); will-change: transform; }
+.tensor-model-face {
+  position: absolute; left: 0; top: 0; display: block;
+  backface-visibility: visible; border: 1px solid rgba(72, 109, 135, .5);
+  box-sizing: border-box; image-rendering: auto;
+}
+.tensor-model-axes { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.tensor-model-axes .volume-axis text { font: 13px var(--mono); text-anchor: middle; }
+.tensor-model-axes .volume-axis.selected text { font-weight: 600; }
+@media (max-width: 600px) { .tensor-model-axes .volume-axis text { font-size: 17px; } }

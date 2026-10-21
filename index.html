@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OctoSense connects wireless datasets, named signal semantics, reusable processing, and explicit experiment specifications.">
+  <meta name="theme-color" content="#172b45">
+  <meta name="citation_title" content="OctoSense: Building a Unified Ecosystem for Open-Source Wireless Sensing">
+  <meta name="citation_author" content="OctoSense authors">
+  <meta name="citation_arxiv_id" content="2610.12405">
+  <title>OctoSense: Building a Unified Ecosystem for Open-Source Wireless Sensing</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="tensor-model.css">
+  <script src="content.js" defer></script>
+  <script src="assets/sample-records.js" defer></script>
+  <script src="assets/cube-data.js" defer></script>
+  <script src="tensor-demo.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#overview" class="wordmark" aria-label="OctoSense home"><img src="assets/mark.svg" width="28" height="30" alt="">OctoSense</a>
+      <nav aria-label="Main navigation">
+        <a href="#example">Named tensors</a><a href="#datasets">Datasets</a><a href="#experiments">Experiments</a><a href="#resources">Resources</a>
+      </nav>
+      <span class="header-context">Wireless sensing research</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="overview" class="hero paper-hero wrap">
+      <div class="hero-copy">
+        <p class="paper-eyebrow">Research paper · 2026</p>
+        <h1><span>OctoSense:</span> Building a Unified Ecosystem<br class="desktop-break"> for Open-Source Wireless Sensing</h1>
+        <p class="paper-authors">OctoSense authors</p>
+        <p class="paper-affiliation">The University of Hong Kong</p>
+        <div class="paper-resources">
+          <a href="https://arxiv.org/abs/2610.12405" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5zM12 2v5h4M8 11h5M8 14h5"/></svg>arXiv <span>2610.12405 ↗</span></a>
+          <a href="https://github.com/aiot-lab/OctoSense" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 5-5 5 5 5m6-10 5 5-5 5M11 3 9 17"/></svg>Code <span>GitHub ↗</span></a>
+          <a href="#datasets" class="paper-data-link">Dataset collection <span>↓</span></a>
+        </div>
+        <p class="hero-description">A shared interface for wireless datasets, signal processing, and reproducible wireless sensing.</p>
+      </div>
+    </section>
+
+    <section class="research-overview wrap" aria-labelledby="questions-title">
+      <div class="research-questions" id="approach">
+        <div class="question-title-row"><h2 id="questions-title">Make the hidden assumptions explicit.</h2><span class="struggle-sticker"><b aria-hidden="true">?</b><span>Still<br>Struggle?</span></span></div>
+        <p>Wireless sensing has no shortage of datasets. Working with them still raises three questions.</p>
+        <ol>
+          <li>How can I use multiple datasets without debugging each one from scratch?</li>
+          <li>How can published code stay reusable instead of becoming another ad hoc script?</li>
+          <li>How should I organize my own dataset so it is easier to understand and reuse?</li>
+        </ol>
+      </div>
+    <figure class="paper-overview" id="paper-figure-one">
+      <span class="meet-burst"><span>Meet</span><strong>OctoSense!</strong></span>
+      <a href="https://arxiv.org/html/2610.12405v1#S1.F1" target="_blank" rel="noopener noreferrer" aria-label="Figure 1 in the OctoSense paper"><img src="assets/figure-one.png" width="544" height="489" alt="Figure 1: OctoSense connects dataset selection, signal-processing operations, model execution, and an experiment specification in one workflow."></a>
+    </figure>
+
+    </section>
+
+    <section id="example" class="section wrap">
+      <div class="section-heading tensor-heading"><h2>Semantic-Aware Data Representation</h2></div>
+      <div class="tensor-demo" data-stage="before" aria-label="Named and positional indexing of real CSI">
+        <div class="comparison-grid">
+          <article class="comparison-panel positional" aria-labelledby="positional-title">
+            <div class="panel-heading"><h3 id="positional-title"><span class="selector-icon" aria-hidden="true">⌖</span> By position</h3></div>
+            <code class="tensor-call">y = STFT(x, axis=<mark>0</mark>)</code>
+            <div class="signal-flow">
+              <button type="button" class="cube-area cube-trigger" id="positional-cube" aria-label="Real CSI cube. The selected storage position stays at zero."></button>
+              <div class="operator-arrow" aria-hidden="true"><svg viewBox="0 0 66 20"><path d="M0 10H62M55 3l7 7-7 7"/></svg></div>
+              <figure class="spectrum"><div class="spectrum-image"><img id="position-spectrum" src="assets/spectrum-reference.png" alt="STFT along the time axis of real CSI"><span class="spectrum-axis">bin</span></div><figcaption><span id="position-spectrum-label">time</span><span>frame →</span></figcaption><div class="spectrum-outcome" id="position-outcome"><b aria-hidden="true">=</b><span>Same spectrum</span></div></figure>
+            </div>
+            <div class="axis-readout" id="position-readout"><span class="selected-slot">0</span><span>time</span></div>
+          </article>
+          <article class="comparison-panel semantic" aria-labelledby="semantic-title">
+            <div class="panel-heading"><h3 id="semantic-title"><span class="selector-icon" aria-hidden="true">↗</span> By semantics (ours)</h3></div>
+            <code class="tensor-call">y = STFT(x, axis=<mark>"time"</mark>)</code>
+            <div class="signal-flow">
+              <button type="button" class="cube-area cube-trigger" id="semantic-cube" aria-label="The same real CSI cube. The selection follows the time axis."></button>
+              <div class="operator-arrow" aria-hidden="true"><svg viewBox="0 0 66 20"><path d="M0 10H62M55 3l7 7-7 7"/></svg></div>
+              <figure class="spectrum"><div class="spectrum-image"><img id="semantic-spectrum" src="assets/spectrum-semantic.png" alt="Identical time-axis STFT before and after axis permutation"><span class="spectrum-axis">bin</span></div><figcaption><span>time</span><span>frame →</span></figcaption><div class="spectrum-outcome stable" id="semantic-outcome"><b aria-hidden="true">=</b><span>Same spectrum</span></div></figure>
+            </div>
+            <div class="axis-readout" id="semantic-readout"><span>time</span><span class="selected-slot">0</span></div>
+          </article>
+        </div>
+        <p class="sr-only" id="stage-description">Initially both methods select time. After the cube rolls, position zero selects subcarrier, while the named operation still selects time.</p>
+      </div>
+    </section>
+
+    <section id="datasets" class="section metadata-section wrap">
+      <div class="section-heading"><div><h2>A dataset is more than a folder of tensors.</h2><p>A catalog entry describes the dataset. Each sample keeps its own identity, signal context, and target association.</p></div></div>
+      <div id="coverage" class="catalog-toolbar"><span class="catalog-count">11 datasets</span><div class="filter-controls" role="group" aria-label="Filter datasets by source RF modality"><button data-filter="all" aria-pressed="true">All</button><button data-filter="wifi" aria-pressed="false">Wi-Fi</button><button data-filter="mmwave" aria-pressed="false">mmWave</button><button data-filter="uwb" aria-pressed="false">UWB</button><button data-filter="rfid" aria-pressed="false">RFID</button><button data-filter="pwr" aria-pressed="false">PWR</button></div></div>
+      <p id="coverage-status" class="sr-only" aria-live="polite">Showing 11 datasets.</p>
+      <div class="dataset-selector" role="group" aria-label="Inspect all 11 datasets"></div>
+      <div class="metadata-explorer" aria-live="polite" aria-atomic="false">
+        <article class="dataset-card" id="dataset-card"><div class="card-top"><span class="folder-symbol" aria-hidden="true"></span><span>Dataset catalog</span><code id="card-id">widar3</code></div><h3 id="card-name">Widar3.0</h3><dl id="card-fields"></dl></article>
+        <div class="metadata-connection" aria-hidden="true"><span></span></div>
+        <div class="sample-inspector">
+          <div class="sample-record"><div class="node-heading"><h3 id="sample-record-heading">Sample record</h3><span id="sample-binding"></span></div><code id="sample-id"></code><div class="record-fields" id="record-fields"></div><div class="sample-source"><span>Source</span><code id="sample-source"></code></div></div>
+          <div class="sample-branches" aria-hidden="true"><span>payload reference</span><span>target association</span></div>
+          <div class="sample-nodes"><div class="signal-node"><h4>Signal + metadata</h4><div class="signal-node-inner"><div id="metadata-cube" class="mini-cube"></div><div><code id="sample-axes"></code><code id="sample-shape"></code><span id="sample-physical"></span></div></div></div><div class="target-node"><h4 id="sample-target-heading">Target / annotation</h4><strong id="sample-target"></strong><span id="sample-target-description"></span><details id="sample-annotation" hidden><summary>View annotation</summary><pre id="sample-annotation-value"></pre></details></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="curation" class="section curation-section wrap">
+      <div class="section-heading"><div><h2>Different sources. Reusable processing.</h2><p>Three Wi-Fi datasets. Shared signal processing. A library of models.</p></div></div>
+      <div class="wifi-pipeline">
+        <div class="wifi-sources"><h3>Wi-Fi datasets</h3><div id="source-lanes" role="group" aria-label="Select a Wi-Fi dataset"></div></div>
+        <div class="pipeline-merge" aria-hidden="true"><svg viewBox="0 0 60 360" preserveAspectRatio="none"><path data-source-line="widar3" d="M0 60H14Q28 60 28 80V160Q28 180 60 180"/><path data-source-line="signfi" d="M0 180H60"/><path data-source-line="widargait" d="M0 300H14Q28 300 28 280V200Q28 180 60 180"/></svg></div>
+        <div class="pipeline-script"><h3>Processing Script</h3><pre><code><span class="syntax-name">process</span> = T.compose([
+    T.AxisNormalize(
+        <span class="syntax-string">"time"</span>, method=<span class="syntax-string">"l2"</span>,
+        epsilon=<span class="syntax-number">1e-8</span>),
+    T.Magnitude(),
+    <span class="align-call">AutoAlign(
+        model.get_input_contract(),
+        time_axis=<span class="syntax-string">"time"</span>,
+        flatten_axes=(
+            <span class="syntax-string">"subc"</span>, <span class="syntax-string">"tx"</span>, <span class="syntax-string">"rx"</span>),
+    ),</span>
+])</code></pre><p>Sequence example · each model declares its input contract.</p></div>
+        <div class="pipeline-output" aria-hidden="true"><span>features</span><svg viewBox="0 0 50 20"><path d="M0 10H46M39 3l7 7-7 7"/></svg></div>
+        <div class="model-library"><div class="model-library-heading"><h3>Model library</h3><span id="model-count"></span></div><div id="model-families"></div></div>
+      </div>
+    </section>
+
+    <section id="experiments" class="section experiments-section wrap">
+      <div class="section-heading"><div><h2>Make the experiment explicit.</h2><p>Capture dataset selection, splits, processing, models, and runtime settings in one experiment specification.</p></div></div>
+      <div class="spec-workbench">
+        <div class="spec-choices" role="group" aria-label="Highlight an experiment specification field"><button data-spec="dataset" aria-pressed="true"><span class="choice-symbol">▱</span><span><strong>Dataset</strong><code>dataset</code></span></button><button data-spec="split" aria-pressed="false"><span class="choice-symbol">⑂</span><span><strong>Split</strong><code>dataset.split_scheme</code></span></button><button data-spec="task" aria-pressed="false"><span class="choice-symbol">◎</span><span><strong>Task &amp; targets</strong><code>task</code></span></button><button data-spec="transform" aria-pressed="false"><span class="choice-symbol">ƒ</span><span><strong>Preprocessing</strong><code>transform.steps</code></span></button><button data-spec="model" aria-pressed="false"><span class="choice-symbol">◇</span><span><strong>Model</strong><code>model</code></span></button><button data-spec="runtime" aria-pressed="false"><span class="choice-symbol">▷</span><span><strong>Runtime</strong><code>runtime</code></span></button></div>
+        <div class="spec-code-panel"><div class="code-titlebar"><span class="document-icon" aria-hidden="true">≡</span><strong>operanet-activity.yaml</strong><span>BenchmarkSpec</span><button id="copy-spec" class="copy-button">Copy excerpt</button></div><pre id="spec-code" tabindex="0" aria-label="Experiment specification excerpt"></pre><textarea id="raw-spec-copy" hidden readonly aria-label="Raw specification text, without line numbers"></textarea><div class="code-footer"><span id="spec-explanation" aria-live="polite"></span><button id="toggle-spec" aria-expanded="false">Show full spec</button></div></div>
+      </div>
+    </section>
+
+    <section id="resources" class="section resources-section wrap"><h2><a id="repository-link" class="explore-code-link" href="https://github.com/aiot-lab/OctoSense" target="_blank" rel="noopener noreferrer">Explore OctoSense <span aria-hidden="true">↗</span></a></h2></section>
+  </main>
+  <footer class="wrap site-footer"><a class="wordmark" href="#overview"><img src="assets/mark.svg" width="22" height="24" alt="">OctoSense</a><p>Data with meaning. Experiments with context.</p><span>Research project overview</span></footer>
+  <noscript><div class="noscript-note">JavaScript is disabled. The axis comparison remains visible. Enable JavaScript to explore dataset records, input modalities, and the specification.</div></noscript>
+</body>
+</html>
