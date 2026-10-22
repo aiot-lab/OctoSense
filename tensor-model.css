@@ -16,6 +16,5 @@
   box-sizing: border-box; image-rendering: auto;
 }
 .tensor-model-axes { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.tensor-model-axes .volume-axis text { font: 13px var(--mono); text-anchor: middle; }
+.tensor-model-axes .volume-axis text { font: 20px var(--mono); text-anchor: middle; }
 .tensor-model-axes .volume-axis.selected text { font-weight: 600; }
-@media (max-width: 600px) { .tensor-model-axes .volume-axis text { font-size: 17px; } }

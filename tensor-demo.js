@@ -11,7 +11,7 @@
     return;
   }
 
-  const size = [54, 54, 43];
+  const size = [66, 66, 48];
   const names = ['time', 'subc', 'rx'];
   const dims = data.displayShape;
   const frameCount = axis => Math.floor((data.shape[axis] - data.transform.n_fft) / data.transform.hop_length) + 1;
@@ -127,10 +127,10 @@
       const q = axis === 2 ? [110, -37] : project(end, axisProgress);
       const mid = p.map((v, i) => (v + q[i]) / 2);
       const radius = Math.hypot(...mid) || 1;
-      const label = mid.map((v, i) => clamp(v + v / radius * 21, i ? -115 : -127, i ? 115 : 127));
+      const label = mid.map((v, i) => clamp(v + v / radius * 24, i ? -110 : -116, i ? 110 : 116));
       const slot = named && permuted && axis < 2 ? 1 - axis : axis;
       const isSelected = axis === 0;
-      const stroke = isSelected ? accent : '#9eafbb';
+      const stroke = isSelected ? accent : '#728a9d';
       group.classList.toggle('selected', isSelected);
       group.dataset.axis = names[!named && permuted && axis < 2 ? 1 - axis : axis];
       group.dataset.slot = String(slot);
@@ -140,11 +140,11 @@
       path.setAttribute('stroke-width', isSelected ? '4' : '1.2');
       circle.setAttribute('cx', q[0]); circle.setAttribute('cy', q[1]);
       circle.setAttribute('r', isSelected ? '4' : '2'); circle.setAttribute('fill', stroke);
-      rect.setAttribute('x', label[0] - (named ? 22 : 12)); rect.setAttribute('y', label[1] - 10);
-      rect.setAttribute('width', named ? '44' : '24'); rect.setAttribute('height', '20');
+      rect.setAttribute('x', label[0] - (named ? 31 : 17)); rect.setAttribute('y', label[1] - 15);
+      rect.setAttribute('width', named ? '62' : '34'); rect.setAttribute('height', '30');
       rect.setAttribute('rx', '4'); rect.setAttribute('fill', isSelected ? accent : '#fff');
-      text.setAttribute('x', label[0]); text.setAttribute('y', label[1] + 4);
-      text.setAttribute('fill', isSelected ? '#fff' : '#677c8c');
+      text.setAttribute('x', label[0]); text.setAttribute('y', label[1] + 7);
+      text.setAttribute('fill', isSelected ? '#fff' : '#405a70');
       text.textContent = named ? names[axis] : String(slot);
     });
   }

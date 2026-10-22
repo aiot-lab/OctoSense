@@ -12,6 +12,7 @@
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="tensor-model.css">
+  <link rel="stylesheet" href="feature-polish.css">
   <script src="content.js" defer></script>
   <script src="assets/sample-records.js" defer></script>
   <script src="assets/cube-data.js" defer></script>
@@ -48,13 +49,22 @@
 
     <section class="research-overview wrap" aria-labelledby="questions-title">
       <div class="research-questions" id="approach">
-        <div class="question-title-row"><h2 id="questions-title">Make the hidden assumptions explicit.</h2><span class="struggle-sticker"><b aria-hidden="true">?</b><span>Still<br>Struggle?</span></span></div>
-        <p>Wireless sensing has no shortage of datasets. Working with them still raises three questions.</p>
-        <ol>
-          <li>How can I use multiple datasets without debugging each one from scratch?</li>
-          <li>How can published code stay reusable instead of becoming another ad hoc script?</li>
-          <li>How should I organize my own dataset so it is easier to understand and reuse?</li>
-        </ol>
+        <div class="question-title-row"><h2 id="questions-title">Why is reuse still<br>so much work?</h2><span class="question-mark" aria-hidden="true">?</span></div>
+        <p>Wireless sensing has plenty of data.<br>Working across it is another story.</p>
+        <ul class="research-roadblocks">
+          <li>
+            <svg class="roadblock-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 9h10v8H4zM4 23h10v8H4zM26 15h10v10H26zM14 13h5v7h7M14 27h5v-7"/><path class="icon-detail" d="m29 20 2 2 3-4"/></svg>
+            <div><h3>A new dataset. A new loader?</h3><p>How can we use multiple datasets without starting from scratch?</p></div>
+          </li>
+          <li>
+            <svg class="roadblock-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="m12 13-7 7 7 7m16-14 7 7-7 7M23 9l-6 22"/><path class="icon-detail" d="M8 7h24M8 33h24"/></svg>
+            <div><h3>Published code. Will it work here?</h3><p>How can we reuse it with a different dataset or setup?</p></div>
+          </li>
+          <li>
+            <svg class="roadblock-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="m5 12 10-6 10 6v12l-10 6-10-6zM5 12l10 6 10-6M15 18v12M25 25h10v10H25z"/><path class="icon-detail" d="M28 28h4m-4 4h4"/></svg>
+            <div><h3>My dataset. Where do I start?</h3><p>How should I organize signals, metadata, and labels?</p></div>
+          </li>
+        </ul>
       </div>
     <figure class="paper-overview" id="paper-figure-one">
       <span class="meet-burst"><span>Meet</span><strong>OctoSense!</strong></span>
@@ -78,7 +88,7 @@
             <div class="axis-readout" id="position-readout"><span class="selected-slot">0</span><span>time</span></div>
           </article>
           <article class="comparison-panel semantic" aria-labelledby="semantic-title">
-            <div class="panel-heading"><h3 id="semantic-title"><span class="selector-icon" aria-hidden="true">↗</span> By semantics (ours)</h3></div>
+            <div class="panel-heading"><h3 id="semantic-title">By semantics <span class="ours-label">(ours)</span></h3><span class="solution-brand"><img src="assets/mark.svg" width="20" height="22" alt="">OctoSense</span></div>
             <code class="tensor-call">y = STFT(x, axis=<mark>"time"</mark>)</code>
             <div class="signal-flow">
               <button type="button" class="cube-area cube-trigger" id="semantic-cube" aria-label="The same real CSI cube. The selection follows the time axis."></button>

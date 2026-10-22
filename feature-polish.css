@@ -1,0 +1,153 @@
+/* Two focal figures: the research questions and the named-axis comparison. */
+.research-overview {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: center;
+  padding-block: 12px 48px;
+}
+.research-questions {
+  padding: 30px 32px 20px;
+  border-radius: 12px;
+  background: #172b45;
+  color: #fff;
+}
+.research-questions .question-title-row { align-items: flex-start; gap: 20px; }
+.research-questions h2 { color: #fff; font-size: 34px; line-height: 1.12; letter-spacing: -.7px; }
+.question-mark {
+  display: grid; place-items: center; flex: none;
+  width: 48px; height: 56px; border: 1px solid #c3a96c;
+  border-radius: 50% 50% 50% 8px; transform: rotate(7deg);
+  font-size: 39px; line-height: 1; color: #f5cd74;
+}
+.research-questions > p { margin-top: 17px; font-size: 17px; line-height: 1.45; color: #cfdae7; }
+.research-roadblocks { list-style: none; margin: 26px 0 0; padding: 0; }
+.research-questions .research-roadblocks li {
+  display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 16px;
+  padding: 20px 0; border-top: 1px solid #3c4f66;
+  font-weight: 400; counter-increment: none;
+}
+.research-roadblocks li::before { display: none; }
+.research-roadblocks h3 { font-size: 23px; font-weight: 650; line-height: 1.22; letter-spacing: -.25px; color: #fff; }
+.research-roadblocks p { margin-top: 7px; color: #c5d2e1; font-size: 16px; line-height: 1.45; }
+.roadblock-icon { width: 36px; height: 36px; fill: none; stroke: #f5cd74; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.roadblock-icon .icon-detail { stroke: #91d1c7; }
+.research-overview .paper-overview { padding: 66px 0 12px; width: 100%; max-width: 544px; }
+.research-overview .meet-burst { top: 0; right: 0; width: 140px; height: 106px; }
+
+.tensor-heading { margin-bottom: 26px; }
+.tensor-demo { border: 0; border-radius: 0; overflow: visible; }
+.tensor-demo .comparison-grid { gap: 20px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.tensor-demo .comparison-panel {
+  padding: 0 22px 20px; border: 1px solid #d4dee7; border-radius: 10px;
+  background: #f8fafc; overflow: hidden;
+}
+.tensor-demo .comparison-panel.semantic { border: 2px solid #09675f; padding: 0 21px 19px; background: #eff8f5; }
+.tensor-demo .panel-heading {
+  min-height: 73px; margin-inline: -22px; padding: 18px 22px;
+  border-bottom: 1px solid #dce3eb; background: #edf1f5; gap: 12px;
+}
+.tensor-demo .panel-heading h3 { font-size: 23px; line-height: 1.2; font-weight: 650; gap: 8px; }
+.tensor-demo .positional .selector-icon { color: #64798d; font-size: 27px; }
+.tensor-demo .semantic .panel-heading { margin-inline: -21px; padding-inline: 21px; border-color: #09675f; background: #09675f; }
+.tensor-demo .semantic .panel-heading h3 { color: #fff; }
+.ours-label { font-size: 16px; font-weight: 400; color: #d0ece6; }
+.solution-brand { display: inline-flex; align-items: center; gap: 7px; color: #fff; font-size: 16px; font-weight: 650; white-space: nowrap; }
+.solution-brand img { filter: brightness(0) invert(1); flex: none; }
+.tensor-demo .tensor-call {
+  margin: 22px 0 0; padding: 9px 12px; background: #fff;
+  border: 1px solid #dce3eb; border-radius: 5px;
+  font-size: 18px; line-height: 1.8; letter-spacing: -.3px; color: #344b61;
+}
+.tensor-demo .tensor-call mark { padding: 3px 6px; }
+.tensor-demo .semantic .tensor-call { border-color: #bfded4; }
+.tensor-demo .semantic .tensor-call mark { color: #fff; background: #09675f; }
+.tensor-demo .signal-flow {
+  grid-template-columns: minmax(0, 1.65fr) 24px minmax(0, 1fr);
+  gap: 12px; min-height: 0; margin-top: 12px; padding: 0;
+}
+.tensor-demo .cube-area { max-width: none; width: 100%; grid-area: auto; justify-self: center; }
+.tensor-demo .operator-arrow { grid-area: auto; margin-top: -20px; padding: 0; }
+.tensor-demo .operator-arrow svg { stroke-width: 2; stroke: #73899b; }
+.tensor-demo .semantic .operator-arrow svg { stroke: #237a74; }
+.tensor-demo .spectrum { grid-area: auto; width: 100%; max-width: none; padding-top: 8px; margin: 0; }
+.tensor-demo .spectrum-image { aspect-ratio: 1.55; }
+.tensor-demo .spectrum figcaption, .tensor-demo .spectrum figcaption > span { font-size: 11px; line-height: 1.4; }
+.tensor-demo .spectrum-axis { left: -17px; font-size: 10px; }
+.tensor-demo .spectrum-outcome { font-size: 15px; font-weight: 600; gap: 7px; margin-top: 11px; }
+.tensor-demo .spectrum-outcome b { font-size: 26px; }
+.tensor-demo .axis-readout { width: calc((100% - 48px) * .623); margin-top: 0; gap: 10px; font-size: 15px; }
+.tensor-demo .selected-slot { width: 29px; height: 29px; }
+.tensor-demo .cube-trigger:focus-visible { outline: 3px solid #237a74; outline-offset: -3px; }
+.tensor-demo .semantic .cube-trigger:hover { background: #e3f1eb; }
+
+@media (max-width: 1100px) {
+  .research-overview { gap: 26px; }
+  .research-questions { padding: 26px 24px 14px; }
+  .research-questions h2 { font-size: 30px; }
+  .research-roadblocks h3 { font-size: 21px; }
+  .tensor-demo .comparison-panel { padding: 0 18px 20px; }
+  .tensor-demo .comparison-panel.semantic { padding: 0 17px 19px; }
+  .tensor-demo .panel-heading { margin-inline: -18px; padding-inline: 18px; }
+  .tensor-demo .semantic .panel-heading { margin-inline: -17px; padding-inline: 17px; }
+  .tensor-demo .panel-heading h3 { font-size: 21px; }
+  .solution-brand { font-size: 14px; }
+  .solution-brand img { width: 17px; }
+  .ours-label { font-size: 14px; }
+  .tensor-demo .tensor-call { font-size: 16px; }
+  .tensor-demo .signal-flow { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .tensor-demo .cube-area { width: min(100%, 290px); }
+  .tensor-demo .operator-arrow { width: 26px; margin: -5px auto 7px; transform: rotate(90deg); }
+  .tensor-demo .spectrum { max-width: 260px; justify-self: center; }
+  .tensor-demo .spectrum-image { aspect-ratio: 2.4; }
+  .tensor-demo .axis-readout { width: 100%; margin-top: 12px; }
+}
+@media (max-width: 800px) {
+  .research-overview { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .research-questions { padding: 28px 30px 16px; }
+  .research-questions h2 { font-size: 34px; }
+  .research-roadblocks h3 { font-size: 23px; }
+  .research-overview .paper-overview { justify-self: center; }
+  .tensor-demo .comparison-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .tensor-demo .comparison-panel { padding: 0 24px 22px; }
+  .tensor-demo .comparison-panel.semantic { padding: 0 23px 21px; }
+  .tensor-demo .panel-heading { margin-inline: -24px; padding-inline: 24px; }
+  .tensor-demo .semantic .panel-heading { margin-inline: -23px; padding-inline: 23px; }
+  .tensor-demo .panel-heading h3 { font-size: 23px; }
+  .solution-brand { font-size: 16px; }
+  .tensor-demo .tensor-call { font-size: 18px; }
+  .tensor-demo .signal-flow { grid-template-columns: minmax(0, 1.65fr) 24px minmax(0, 1fr); gap: 12px; }
+  .tensor-demo .cube-area { width: 100%; max-width: 330px; }
+  .tensor-demo .operator-arrow { width: 100%; margin: -20px 0 0; transform: none; }
+  .tensor-demo .spectrum { max-width: none; }
+  .tensor-demo .spectrum-image { aspect-ratio: 1.55; }
+  .tensor-demo .axis-readout { width: calc((100% - 48px) * .623); margin-top: 0; }
+}
+@media (max-width: 520px) {
+  .research-overview { padding-block: 0 34px; }
+  .research-questions { padding: 25px 21px 10px; border-radius: 9px; }
+  .research-questions h2 { font-size: 29px; letter-spacing: -.5px; }
+  .research-questions .question-title-row { gap: 12px; }
+  .question-mark { width: 35px; height: 43px; font-size: 30px; }
+  .research-questions > p { font-size: 16px; }
+  .research-roadblocks { margin-top: 23px; }
+  .research-questions .research-roadblocks li { grid-template-columns: 29px minmax(0, 1fr); gap: 12px; padding-block: 19px; }
+  .roadblock-icon { width: 29px; height: 29px; }
+  .research-roadblocks h3 { font-size: 21px; }
+  .research-roadblocks p { font-size: 15px; }
+  .research-overview .paper-overview { padding-top: 80px; }
+  .research-overview .meet-burst { width: 123px; height: 93px; top: 4px; }
+  .tensor-demo .comparison-panel { padding: 0 18px 20px; }
+  .tensor-demo .comparison-panel.semantic { padding: 0 17px 19px; }
+  .tensor-demo .panel-heading { margin-inline: -18px; padding-inline: 18px; min-height: 66px; flex-wrap: wrap; gap: 8px 12px; }
+  .tensor-demo .semantic .panel-heading { margin-inline: -17px; padding-inline: 17px; }
+  .tensor-demo .panel-heading h3 { font-size: 21px; }
+  .solution-brand { font-size: 14px; }
+  .ours-label { font-size: 14px; }
+  .tensor-demo .tensor-call { font-size: clamp(13px, 3.7vw, 18px); margin-top: 18px; padding-inline: 8px; letter-spacing: -.2px; }
+  .tensor-demo .signal-flow { grid-template-columns: minmax(0, 1fr); gap: 3px; }
+  .tensor-demo .cube-area { width: min(100%, 290px); }
+  .tensor-demo .operator-arrow { width: 26px; margin: -5px auto 7px; transform: rotate(90deg); }
+  .tensor-demo .spectrum { max-width: 260px; justify-self: center; }
+  .tensor-demo .spectrum-image { aspect-ratio: 2.4; }
+  .tensor-demo .axis-readout { width: 100%; margin-top: 12px; }
+}
