@@ -1,4 +1,4 @@
-/* Public dataset descriptions. */
+/* Public dataset descriptions. Size provenance: qa/dataset-size-sources.json. */
 window.OCTOSENSE_CONTENT = {
   "cards": {
     "widar3": {
@@ -23,6 +23,7 @@ window.OCTOSENSE_CONTENT = {
       "physical": "Packet timestamps; physical metadata when available",
       "target": "gesture class",
       "targetDescription": "A categorical target under the gesture binding.",
+      "extra": "Intel 5300 DAT captures are joined to metadata rows. The schema declares a nominal 1,000 Hz rate; individual samples use timestamp-derived information. The G6 binding selects six gestures. Data access and use follow the original source terms.",
       "modalityViews": {
         "wifi": {
           "supported": true,
@@ -47,6 +48,7 @@ window.OCTOSENSE_CONTENT = {
       ],
       "physical": "Intel 5300 CSI · nominal 1,000 Hz",
       "target": "person identity",
+      "extra": "Raw and processed CSI recordings are associated with person identity and capture metadata. The selected split defines how recordings are assigned to training, validation, and test.",
       "name": "WiFi Gait",
       "id": "widargait",
       "source": "WiFi Gait project",
@@ -76,6 +78,7 @@ window.OCTOSENSE_CONTENT = {
       ],
       "physical": "Intel 5300 CSI · nominal 1,000 Hz",
       "target": "sign class",
+      "extra": "MAT archives contain CSI arrays and sign labels. Home and lab variants select their matching arrays; uplink and downlink retain the same gesture identities. Lab150 covers 150 signs and the other variants cover 276.",
       "name": "SignFi",
       "id": "signfi",
       "source": "SignFi project",
@@ -105,6 +108,7 @@ window.OCTOSENSE_CONTENT = {
       ],
       "physical": "Intel 5300 CSI · nominal 1,000 Hz",
       "target": "fall / nonfall",
+      "extra": "Capture metadata links each clip and receiver to a fall or nonfall label. A task-specific transform can convert CSI into time–feature magnitude inputs.",
       "name": "FallDar",
       "id": "falldar",
       "source": "FallDar project",
@@ -134,6 +138,7 @@ window.OCTOSENSE_CONTENT = {
       ],
       "physical": "Task-specific CSI schema",
       "target": "task-specific target",
+      "extra": "HDF5 signals are indexed by task metadata and linked to each task’s labels. Breathing, fall, localization, and motion tasks have separate inputs; activity, identity, and proximity use task-specific annotations.",
       "name": "CSI-Bench",
       "id": "csi_bench",
       "source": "CSI-Bench project",
@@ -168,6 +173,7 @@ window.OCTOSENSE_CONTENT = {
       "physical": "Radar-map layout · AWR1843 acquisition",
       "target": "joints [14, 2]\nbbox [4]",
       "targetDescription": "Pose and bounding-box arrays stay associated with the frame.",
+      "extra": "Radar-map frames are read from pickle files and linked to joint coordinates and bounding boxes. The signal schema describes 77 GHz acquisition with 4 GHz bandwidth. Access and license terms are provided by the source project.",
       "modalityViews": {
         "mmwave": {
           "supported": true,
@@ -190,6 +196,7 @@ window.OCTOSENSE_CONTENT = {
       ],
       "physical": "Wi-Fi CSI; mmWave: time · point · feature",
       "target": "activity class",
+      "extra": "The selected RF modality provides either CSI or point-cloud frames. Subject and activity identity connect signal samples to targets. Protocol 3 includes 27 actions; the dataset also provides pose annotations in its original release.",
       "name": "MM-Fi",
       "id": "mmfi",
       "source": "MM-Fi project",
@@ -224,6 +231,7 @@ window.OCTOSENSE_CONTENT = {
       ],
       "physical": "Wi-Fi CSI or preprocessed mmWave",
       "target": "activity class",
+      "extra": "Each modality is selected as its own signal view. Sample manifests retain source paths and subject identity, while the selected binding associates signals with action labels.",
       "name": "XRF55",
       "id": "xrf55",
       "source": "XRF55 project",
@@ -264,6 +272,7 @@ window.OCTOSENSE_CONTENT = {
       ],
       "physical": "Wi-Fi action clips",
       "target": "action class",
+      "extra": "Source recordings are segmented using action boundaries. Each clip keeps its volunteer, scene, source file, and action mapping. The current input view selects Wi-Fi from the original multimodal collection.",
       "name": "XRF V2",
       "id": "xrfv2",
       "source": "XRF V2 project",
@@ -292,6 +301,7 @@ window.OCTOSENSE_CONTENT = {
       ],
       "physical": "Node-specific Wi-Fi, radar, and UWB signals",
       "target": "activity class",
+      "extra": "Node-specific source references and subject identity connect heterogeneous recordings to activity targets. Select the modality and sensor node explicitly; signal axes and coordinates follow that selected view.",
       "name": "OctoNet",
       "id": "octonet",
       "source": "OctoNet project",
@@ -355,6 +365,7 @@ window.OCTOSENSE_CONTENT = {
       "physical": "Ordinal time samples · sampling rate unknown",
       "target": "activity class",
       "targetDescription": "One of seven activities in the selected recognition binding.",
+      "extra": "Wi-Fi CSI and UWB CIR samples retain activity, person, room, and window identity. The Wi-Fi variants are wificsi1 and wificsi2; UWB1 and UWB2 have 35 and 50 CIR taps respectively. Source terms are provided with the original data.",
       "modalityViews": {
         "wifi": {
           "supported": true,
