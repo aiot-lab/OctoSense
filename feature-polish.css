@@ -31,7 +31,7 @@
 .research-roadblocks p { margin-top: 7px; color: #c5d2e1; font-size: 16px; line-height: 1.45; }
 .roadblock-icon { width: 36px; height: 36px; fill: none; stroke: #f5cd74; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .roadblock-icon .icon-detail { stroke: #91d1c7; }
-.research-overview .paper-overview { padding: 66px 0 12px; width: 100%; max-width: 544px; }
+.research-overview .paper-overview { padding: 116px 0 12px; width: 100%; max-width: 544px; }
 .research-overview .meet-burst { top: 0; right: 0; width: 140px; height: 106px; }
 
 .tensor-heading { margin-bottom: 26px; }
@@ -134,7 +134,7 @@
   .roadblock-icon { width: 29px; height: 29px; }
   .research-roadblocks h3 { font-size: 21px; }
   .research-roadblocks p { font-size: 15px; }
-  .research-overview .paper-overview { padding-top: 80px; }
+  .research-overview .paper-overview { padding-top: 108px; }
   .research-overview .meet-burst { width: 123px; height: 93px; top: 4px; }
   .tensor-demo .comparison-panel { padding: 0 18px 20px; }
   .tensor-demo .comparison-panel.semantic { padding: 0 17px 19px; }
